@@ -5,10 +5,10 @@ Project to remove the artifacts in the another projects
 ## Example usage
 
 ```
-uses: actions/Remove-artifacts-actions
+uses: actions/artifact-remove@v1
 with:
     retention-days: 7
-    project-name: "test"
+    project-name: "hello-actions"
     owner-account: "matheusrosmano"
     access-token: ${{ secrets.myToken }}
 ```
