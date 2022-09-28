@@ -1,0 +1,23 @@
+name: 'artifacts remove'
+description: 'Responsable to delete the artifacts in your project'
+inputs:
+  retention-days:
+    description: 'Number of days a artifacts needs to delete in project'
+    required: true
+  project-name:
+    description: 'Name of project'
+    required: true
+  owner-account:
+    description: 'Name of owner of account, can be organizations name too'
+    required: true
+  access-token:
+    description: 'Token to access the artifacts in your account'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.retention-days }}
+    - ${{ inputs.project-name }}
+    - ${{ inputs.owner-account }}
+    - ${{ inputs.access-token }}
