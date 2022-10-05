@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY src .
 
-RUN go mod init v1
-RUN go mod tidy
+RUN go env -w GO111MODULE=off
+ENV GOPATH=$(pwd)
 
 ENTRYPOINT [ "go","run","/app/main.go" ]
