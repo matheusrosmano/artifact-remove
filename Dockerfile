@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY src .
 
-RUN go mod tidy
+RUN go mod init
 
 ENTRYPOINT [ "go","run","/app/main.go" ]
