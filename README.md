@@ -5,7 +5,7 @@ Project to remove the artifacts in the another projects
 ## Example usage
 
 ```
-uses: matheusrosmano/artifact-remove@v1
+uses: matheusrosmano/artifact-remove@v2
 with:
     retention-days: 7
     project-name: "hello-actions"
