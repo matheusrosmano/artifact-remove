@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY src .
 
-RUN go env -u GOPATH=/app
+ENV GOPATH=/app
 
 ENTRYPOINT [ "go","run","/app/main.go" ]
