@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY src .
 
+ENV GOPATH="/app"
+
 RUN go mod init v1
 RUN go mod tidy
 
