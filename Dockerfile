@@ -1,10 +1,10 @@
 FROM golang:alpine3.16
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/
 
 COPY src .
 
 RUN go mod tidy
 RUN go build -o main
 
-ENTRYPOINT [ "./main" ]
+CMD ["./main"]
