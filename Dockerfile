@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 COPY src .
 
-ENTRYPOINT [ "go","run","main.go" ]
+ENTRYPOINT [ "go","run","/usr/src/app/main.go" ]
