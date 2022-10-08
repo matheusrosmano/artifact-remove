@@ -4,4 +4,7 @@ WORKDIR /usr/src/app
 
 COPY src .
 
-ENTRYPOINT [ "go","run","/usr/src/app/main.go" ]
+RUN go mod tidy
+RUN go build -o main
+
+ENTRYPOINT [ "./main" ]
