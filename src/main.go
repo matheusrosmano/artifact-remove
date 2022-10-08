@@ -69,7 +69,7 @@ func main() {
 
 	if bodyResponse.TotalCount == 0 {
 		fmt.Println("There aren't any artifact to delete on project", projectName)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	dataToRetention := dayOfToday.AddDate(0, 0, -1*daysOfRetention)
