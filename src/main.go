@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 	"v1/mapper"
 )
@@ -17,6 +18,11 @@ func main() {
 	ownerAccount := os.Getenv("INPUT_OWNER-ACCOUNT")
 	tokenAccess := os.Getenv("INPUT_ACCESS-TOKEN")
 	baseUrlGithub := "https://api.github.com/repos"
+
+	if strings.TrimSpace(daysOfRetentionString) == "" || strings.TrimSpace(projectName) == "" || strings.TrimSpace(ownerAccount) == "" || strings.TrimSpace(tokenAccess) == "" {
+		fmt.Println("Some variable are empty")
+		os.Exit(1)
+	}
 
 	fmt.Println("Starting the code ...")
 
