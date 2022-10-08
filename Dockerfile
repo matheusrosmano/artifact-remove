@@ -1,9 +1,7 @@
 FROM golang:alpine3.16
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY src .
 
-ENV GOPATH=/app
-
-ENTRYPOINT [ "go","run","/app/main.go" ]
+ENTRYPOINT [ "go","run","main.go" ]
