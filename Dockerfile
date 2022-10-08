@@ -1,10 +1,14 @@
-FROM golang:alpine3.16
+FROM golang:alpine3.16 as builder
 
-WORKDIR /usr/src/
+WORKDIR /app
 
 COPY src .
 
 RUN go mod tidy
-RUN go build -o main
+RUN go build -o app.golang
 
-CMD ["./main"]
+FROM alpine:latest
+
+COPY --from=builder /app/app.golang /usr/bin
+
+ENTRYPOINT [ "app.golang" ]
