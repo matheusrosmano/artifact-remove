@@ -1,10 +1,14 @@
-FROM python:alpine3.16
+FROM golang:alpine3.16 as builder
 
-ARG retention-days
 WORKDIR /app
 
 COPY src .
 
-RUN pip install -r requirements.txt
+RUN go mod tidy
+RUN go build -o app.golang
 
-ENTRYPOINT [ "python","/app/main.py" ]
+FROM alpine:latest
+
+COPY --from=builder /app/app.golang /usr/bin
+
+ENTRYPOINT [ "app.golang" ]

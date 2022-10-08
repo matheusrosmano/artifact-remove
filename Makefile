@@ -6,3 +6,9 @@ commit-by-tag:
 
 git-push-with-tags:
 	git push --tags -f
+
+docker-build:
+	docker build -t remove-artifacts . --no-cache
+
+docker-run:
+	docker run -it remove-artifacts
